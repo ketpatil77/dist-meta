@@ -190,10 +190,10 @@ exclude = [
 
 [tool.hatch.build.targets.sdist]
 include = [ "dist_meta", "requirements.txt", "tests", "tox.ini",]
-# Source archives carry downstream test inputs; wheels retain the shared exclusions.
 exclude = []
-# Tracked wheel fixtures are intentionally ignored by Git patterns but needed by tests.
-force-include = { "tests/wheels" = "tests/wheels" }
+
+[tool.hatch.build.targets.sdist.force-include]
+"tests/wheels" = "tests/wheels"
 
 [tool.hatch.build.wheel]
 include = [ "dist_meta",]
